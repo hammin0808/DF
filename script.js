@@ -259,3 +259,27 @@ if (currentParam) {
     }
   }, 500); // 데이터 렌더링 후를 위해 약간 딜레이
 }
+
+// QR코드로 접속 시 studio 파라미터로 자동 하이라이트 및 현재 위치 설정 (setTimeout으로 DOM 렌더 이후 실행)
+window.onload = function() {
+  const params = new URLSearchParams(window.location.search);
+  const studio = params.get('studio');
+  if (studio) {
+    // "2-11" → "studio-211" 등으로 변환
+    let studioId = `studio-${studio.replace('-', '')}`;
+    // 기존 선택 해제
+    document.querySelectorAll('.studio.selected').forEach(el => el.classList.remove('selected'));
+    const el = document.querySelector(`.studio[data-id="${studioId}"]`);
+    if (el) {
+      el.classList.add('selected');
+      // 항상 새로 가져오기
+      const locationName = document.getElementById('currentLocationName');
+      if (locationName) {
+        locationName.textContent = el.textContent.trim();
+      }
+      startNode = studioId;
+      updateBtn();
+      el.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+  }
+};

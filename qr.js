@@ -1,9 +1,16 @@
 const QRCode = require('qrcode');
 
-// 외부에서 접속하려면 공인 IP 사용
-const url = 'http://58.127.241.36:3000/DF/index.html?current=studio-212';
+const urls = [
+  'https://df-3r3k.onrender.com/?studio=2-3',
+  'https://df-3r3k.onrender.com/?studio=1-2',
+  'https://df-3r3k.onrender.com/?studio=2-11'
+];
 
-QRCode.toFile('studio-212.png', url, function (err) {
-  if (err) throw err;
-  console.log('✅ studio-212.png QR코드 생성 완료!');
+urls.forEach(url => {
+  const params = new URL(url).searchParams;
+  const studio = params.get('studio');
+  QRCode.toFile(`qr-${studio}.png`, url, function (err) {
+    if (err) throw err;
+    console.log(`QR for ${url} saved!`);
+  });
 });
