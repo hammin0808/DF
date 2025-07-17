@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>디지털팩토리 안내</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <div class="app-header">
+      <div class="app-title">디지털팩토리 안내</div>
+      <div class="app-subtitle">스튜디오 길찾기</div>
+    </div>
+
+    <!-- 첫 화면 제거, 지도 화면만 남김 -->
+    <div class="screen active" id="mapScreen">
+      <div class="current-location-info">
+        <div class="location-icon">📍</div>
+        <div class="location-text">
+          <div class="location-title">현재 위치</div>
+          <div class="location-name" id="currentLocationName">선택 필요</div>
+        </div>
+      </div>
+
+      <div class="floor-plan" id="floorPlan">
+        <svg id="pathOverlay" class="path-overlay"></svg>
+
+        <!-- 기존 스튜디오와 노드 배치 그대로 유지 -->
+        <div class="hall-node hall-node-1" data-id="hall-node-1"></div>
+        <div class="hall-node hall-node-2" data-id="hall-node-2"></div>
+        <div class="hall-node hall-node-3" data-id="hall-node-3"></div>
+        <div class="hall-node hall-node-4" data-id="hall-node-4"></div>
+        <div class="hall-node hall-node-5" data-id="hall-node-5"></div>
+        <div class="hall-node hall-node-6" data-id="hall-node-6"></div>
+        <div class="hall-node hall-node-7" data-id="hall-node-7"></div>
+        <div class="hall-node hall-node-8" data-id="hall-node-8"></div>
+        <div class="hall-node hall-node-9" data-id="hall-node-9"></div>
+        <div class="hall-node hall-node-22" data-id="hall-node-22"></div>
+        <div class="hall-node hall-node-10" data-id="hall-node-10"></div>
+        <div class="hall-node hall-node-11" data-id="hall-node-11"></div>
+        <div class="hall-node hall-node-12" data-id="hall-node-12"></div>
+        <div class="hall-node hall-node-13" data-id="hall-node-13"></div>
+        <div class="hall-node hall-node-14" data-id="hall-node-14"></div>
+        <div class="hall-node hall-node-15" data-id="hall-node-15"></div>
+        <div class="hall-node hall-node-16" data-id="hall-node-16"></div>
+        <div class="hall-node hall-node-17" data-id="hall-node-17"></div>
+        <div class="hall-node hall-node-18" data-id="hall-node-18"></div>
+        <div class="hall-node hall-node-19" data-id="hall-node-19"></div>
+        <div class="hall-node hall-node-20" data-id="hall-node-20"></div>
+        <div class="hall-node hall-node-21" data-id="hall-node-21"></div>
+
+        <!-- 스튜디오들 그대로 유지 -->
+        <div class="studio studio-212" data-id="studio-212"><span>Studio #2-12</span><div class="door"></div></div>
+        <div class="studio studio-211" data-id="studio-211"><span>Studio #2-11</span><div class="door"></div></div>
+        <div class="studio studio-210" data-id="studio-210"><span>Studio #2-10</span><div class="door"></div></div>
+        <div class="studio studio-29" data-id="studio-29"><span>Studio #2-9</span><div class="door"></div></div>
+        <div class="studio studio-equipment" data-id="studio-equipment"><span>기자재실</span><div class="door"></div></div>
+        <div class="studio studio-28" data-id="studio-28"><span>Studio #2-8</span><div class="door"></div></div>
+        <div class="studio studio-makeup" data-id="studio-makeup"><span>분장실</span><div class="door"></div></div>
+        <div class="studio studio-df" data-id="studio-df"><span>DF Office</span><div class="door"></div></div>
+        <div class="studio studio-27" data-id="studio-27"><span>Studio #2-7</span><div class="door"></div></div>
+        <div class="studio studio-21" data-id="studio-21"><span>Studio #2-1</span><div class="door"></div></div>
+        <div class="studio studio-22" data-id="studio-22"><span>Studio #2-2</span><div class="door"></div></div>
+        <div class="studio studio-props" data-id="studio-props"><span>소품실</span><div class="door"></div></div>
+        <div class="studio studio-23" data-id="studio-23"><span>Studio #2-3</span><div class="door"></div></div>
+        <div class="studio studio-24" data-id="studio-24"><span>Studio #2-4</span><div class="door"></div></div>
+        <div class="studio studio-25" data-id="studio-25"><span>Studio #2-5</span><div class="door"></div></div>
+        <div class="studio studio-26" data-id="studio-26"><span>Studio #2-6</span><div class="door"></div></div>
+        <div class="studio blue studio-11" data-id="studio-11"><span>Studio #1-1, 녹음실</span><div class="door"></div></div>
+        <div class="studio blue studio-12" data-id="studio-12"><span>Studio #1-2</span><div class="door"></div></div>
+        <div class="studio blue studio-13" data-id="studio-13"><span>Studio #1-3</span><div class="door"></div></div>
+        <div class="studio blue studio-14" data-id="studio-14"><span>Studio #1-4</span><div class="door"></div></div>
+        <div class="studio blue studio-youtube" data-id="studio-youtube"><span>유튜브실</span><div class="door"></div></div>
+      </div>
+
+      <button class="start-navigation-btn" id="startNavBtn" disabled>목적지를 선택해주세요</button>
+    </div>
+  </div>
+<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,213 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background:#f5f5f5;
+  display:flex;justify-content:center;align-items:center;
+  min-height:100vh;margin:0;
+}
+.app-container {
+  width:420px;
+  height:85vh;
+  background:white;
+  border-radius:15px;
+  box-shadow:0 10px 20px rgba(0,0,0,0.2);
+  display:flex;flex-direction:column;
+  overflow:hidden;
+}
+.app-header {
+  background:linear-gradient(135deg,#3498db,#2980b9);
+  color:#fff;text-align:center;padding:20px;
+}
+.app-title { font-size:22px;font-weight:bold; }
+.app-subtitle { font-size:14px;opacity:0.9; }
+.screen { flex:1;padding:15px;display:flex;flex-direction:column; }
+.current-location-info {
+  background:#e8f4fd;border-radius:8px;padding:10px;margin-bottom:10px;
+  display:flex;align-items:center;
+}
+.location-icon { font-size:18px;margin-right:8px; }
+.location-name { font-weight:bold;font-size:16px; }
+
+.floor-plan {
+  position:relative;
+  flex:1;
+  border:3px solid #2c3e50;
+  border-radius:8px;
+  background:#eee;
+  overflow:hidden;
+  margin-bottom:10px;
+}
+.studio {
+  position:absolute;
+  border:2px solid #2c3e50;
+  background:#f4a261;
+  font-size:10px;
+  font-weight:bold;
+  color:#2c3e50;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  cursor:pointer;
+  transition:background 0.3s, border-color 0.3s;
+}
+.studio.blue { background:#3498db;color:white; }
+.studio.selected {
+  background:#27ae60 !important;
+  border-color:#1e8449 !important;
+  color:#fff;
+}
+.start-navigation-btn {
+  background:#bdc3c7;
+  color:#fff;
+  font-weight:bold;
+  padding:12px;
+  border:none;
+  border-radius:6px;
+  font-size:14px;
+}
+.start-navigation-btn.enabled {
+  background:#3498db;
+}
+
+/* 위치값 (예시 동일) */
+.studio-212 {top:2%;left:4%;width:12%;height:8%;}
+.studio-211 {top:12%;left:4%;width:12%;height:8%;}
+.studio-210 {top:22%;left:4%;width:12%;height:8%;}
+.studio-29 {top:32%;left:4%;width:12%;height:8%;}
+.studio-equipment {top:42%;left:4%;width:12%;height:8%;}
+.studio-28 {top:52%;left:4%;width:12%;height:8%;}
+.studio-makeup {top:62%;left:4%;width:12%;height:8%;}
+.studio-df {top:80%;left:4%;width:12%;height:8%;}
+.studio-27 {top:80%;left:25%;width:12%;height:8%;}
+
+.studio-21 {top:2%;left:32%;width:12%;height:8%;}
+.studio-22 {top:12%;left:32%;width:12%;height:8%;}
+.studio-props {top:22%;left:32%;width:12%;height:8%;}
+
+.studio-23 {top:42%;left:42%;width:12%;height:8%;}
+.studio-24 {top:42%;left:56%;width:12%;height:8%;}
+.studio-25 {top:42%;left:70%;width:12%;height:8%;}
+.studio-26 {top:42%;left:84%;width:12%;height:8%;}
+
+.studio-11 {top:60%;left:56%;width:12%;height:8%;}
+.studio-12 {top:60%;left:70%;width:12%;height:8%;}
+.studio-13 {top:60%;left:84%;width:12%;height:8%;}
+.studio-14 {top:80%;left:39%;width:12%;height:8%;}
+
+.studio-youtube {top:80%;left:88%;width:12%;height:8%;}
+
+.path-overlay {
+  position:absolute;
+  top:0;left:0;
+  width:100%;height:100%;
+  pointer-events:none;
+}
+
+
+.door {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  background: #e74c3c;      /* 빨간색 */
+  border: 2px solid #fff;   /* 흰색 테두리 */
+  border-radius: 50%;       /* 원 */
+  z-index: 3;
+}
+
+
+/* 왼쪽 세로 복도 */
+.hall-node-1  { top: 5.5%; left: 23%; }
+.hall-node-2  { top: 15.5%; left: 23%; }
+.hall-node-3  { top: 25.5%; left: 23%; }
+.hall-node-4  { top: 35.5%; left: 23%; }
+.hall-node-5  { top: 45.5%; left: 23%; }
+.hall-node-6  { top: 55.5%; left: 23%; }
+.hall-node-7  { top: 65.6%; left: 23%; }
+
+/* 상단 가로 복도 */
+.hall-node-8  { top: 75%; left: 30.5%; }
+.hall-node-9  { top: 75%; left: 44%; }
+.hall-node-22  { top: 75%; left: 60%; }
+.hall-node-10 { top: 75%; left: 20%; }
+
+/* 중앙 가로 복도 */
+.hall-node-11 { top: 65.6%; left: 35%; }
+.hall-node-12 { top: 55.5%; left: 47.2%; }
+.hall-node-13 { top: 55.5%; left: 61.5%; }
+.hall-node-14 { top: 55.5%; left: 75.5%; }
+.hall-node-15 { top: 55.5%; left: 89%; }
+
+/* 하단 가로 복도 */
+.hall-node-16 { top: 55.5%; left: 35%; }
+.hall-node-17 { top: 65%; left: 47.2%; }
+.hall-node-18 { top: 83.5%; left: 62%; }
+.hall-node-19 { top: 75%; left: 76%; }
+.hall-node-20 { top: 75%; left: 89%; }
+.hall-node-21 { top: 83.5%; left: 75.5%; }
+
+/* 왼쪽 세로 복도에 있는 스튜디오들: 문은 오른쪽에 */
+.studio-212 .door { right: -6px; top: 50%; transform: translateY(-50%); }
+.studio-211 .door { right: -6px; top: 50%; transform: translateY(-50%); }
+.studio-210 .door { right: -6px; top: 50%; transform: translateY(-50%); }
+.studio-29  .door { right: -6px; top: 50%; transform: translateY(-50%); }
+.studio-equipment .door { right: -6px; top: 50%; transform: translateY(-50%); }
+.studio-28  .door { right: -6px; top: 50%; transform: translateY(-50%); }
+.studio-makeup .door { right: -6px; top: 50%; transform: translateY(-50%); }
+.studio-df .door { right: -6px; top: 50%; transform: translateY(-50%); }
+
+/* DF Office 문도 오른쪽에 */
+.studio-27 .door { top: -1px; transform: translateY(-50%); }
+
+/* 오른쪽 세로 구역: 문은 왼쪽 */
+.studio-21 .door { left: -6px; top: 50%; transform: translateY(-50%); }
+.studio-22 .door { left: -6px; top: 50%; transform: translateY(-50%); }
+.studio-props .door { left: -6px; top: 50%; transform: translateY(-50%); }
+
+/* 상단 가로 구역: 문은 아래쪽 */
+.studio-23 .door { bottom: -6px; left: 50%; transform: translateX(-50%); }
+.studio-24 .door { bottom: -6px; left: 50%; transform: translateX(-50%); }
+.studio-25 .door { bottom: -6px; left: 50%; transform: translateX(-50%); }
+.studio-26 .door { bottom: -6px; left: 50%; transform: translateX(-50%); }
+
+/* 하단 파란색 스튜디오 구역: 문은 위쪽 */
+.studio-11 .door { bottom: -6px; left: 50%; transform: translateX(-50%); }
+.studio-12 .door { bottom: -6px; left: 50%; transform: translateX(-50%); }
+.studio-13 .door { bottom: -6px; left: 50%; transform: translateX(-50%); }
+.studio-14 .door { right: -6px; top: 50%; transform: translateY(-50%); }
+.studio-record .door { bottom: -6px; left: 50%; transform: translateX(-50%); }
+.studio-youtube .door { left: -6px; top: 50%; transform: translateY(-50%); }
+
+
+/* 기존 스타일 유지 … */
+
+.screen.hidden {
+  display: none !important; /* 강제 숨김 */
+}
+
+#scanScreen {
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+}
+
+.qr-buttons button {
+  margin:10px;
+  padding:15px 20px;
+  font-size:16px;
+  background:#3498db;
+  color:#fff;
+  border:none;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.hall-node {
+  position:absolute;
+  width:5px;
+  height:5px;
+
+  border-radius:50%;
+  z-index:3;
+}
